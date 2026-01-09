@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MoviesWindow</class>
+ <widget class="QMainWindow" name="MoviesWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1404</width>
+    <height>694</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>IMDB Top 250</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow{
+    background-color:#121212;
+}
+QLabel#label_title{
+    font-size:38px;
+    font-weight:700;
+    color:#f5c518; 
+    margin:20px 0;
+}
+QWidget#gridLayoutWidget{
+    background-color:#1e1e1e;
+    border-radius:12px;
+    border:1px solid #2f2f2f;
+    padding:12px;
+}
+QComboBox{
+    background-color:#2a2a2a;
+    color:white;
+    padding:6px 10px;
+    border-radius:6px;
+    border:1px solid #3a3a3a;
+}
+QComboBox::drop-down{
+    width:30px;
+    border-left:1px solid #3a3a3a;
+}
+QComboBox::down-arrow{
+    image: none;
+    border: none;
+    width: 12px;
+    height: 12px;
+}
+QComboBox QAbstractItemView{
+    background-color:#1e1e1e;
+    color:white;
+    selection-background-color:#f5c518;
+    selection-color:black;
+}
+QPushButton{
+    background-color:#f5c518;
+    color:black;
+    font-size:15px;
+    font-weight:600;
+    padding:10px 18px;
+    border-radius:8px;
+    border:none;
+}
+QPushButton:hover{
+    background-color:#ffd84d;
+}
+QPushButton:pressed{
+    background-color:#e6b800;
+}
+QCheckBox,
+QRadioButton{
+    color:#dddddd;
+    font-size:14px;
+    spacing:6px;
+}
+
+QCheckBox::indicator,
+QRadioButton::indicator{
+    width:16px;
+    height:16px;
+}
+
+QCheckBox::indicator:checked,
+QRadioButton::indicator:checked{
+    background-color:#f5c518;
+    border-radius:3px;
+	color:white;
+}
+QTableWidget{
+    background-color:#181818;
+    color:black;
+    gridline-color:#2f2f2f;
+    border:1px solid #2f2f2f;
+}
+
+QHeaderView::section{
+    background-color:#1f1f1f;
+    color:#f5c518;
+    font-weight:600;
+    padding:8px;
+    border:none;
+}
+
+QTableWidget::item:selected{
+    background-color:white;
+    color:black;
+}
+QRadioButton:disabled{
+    background-color:#2a2a2a;
+    color:#777;
+    border-radius:3px;
+    padding:4px;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label_title">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>10</y>
+      <width>501</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>87</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>IMDB Top 250 Movies</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>140</y>
+      <width>941</width>
+      <height>511</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>250</number>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>false</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>rank</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>name</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>year</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>rating</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>genre</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>directors</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>writers</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>140</y>
+      <width>421</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="0">
+      <widget class="QComboBox" name="comboBox_genre"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QCheckBox" name="checkBox_rating">
+       <property name="text">
+        <string>Rating</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="1">
+      <widget class="QCheckBox" name="checkBox_genre">
+       <property name="text">
+        <string>Genre</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2" rowspan="3">
+      <layout class="QFormLayout" name="formLayout">
+       <item row="0" column="0">
+        <widget class="QRadioButton" name="radioButton_AllList">
+         <property name="text">
+          <string>All List</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QRadioButton" name="radioButton_top10">
+         <property name="text">
+          <string>Top 10</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QRadioButton" name="radioButton_top25">
+         <property name="text">
+          <string>Top 25</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QRadioButton" name="radioButton_top50">
+         <property name="text">
+          <string>Top 50</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="2" column="0">
+      <widget class="QComboBox" name="comboBox_year"/>
+     </item>
+     <item row="2" column="1">
+      <widget class="QCheckBox" name="checkBox_year">
+       <property name="text">
+        <string>Year</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QComboBox" name="comboBox_rating"/>
+     </item>
+     <item row="4" column="0">
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="5" column="1">
+      <widget class="QPushButton" name="btn_Show">
+       <property name="text">
+        <string>Show</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Minimum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
